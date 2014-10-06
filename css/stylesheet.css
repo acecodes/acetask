@@ -12,7 +12,8 @@
 
 .jumbotron#acetask {
   text-align: center;
-  background: 0; }
+  background: 0;
+  padding: 0; }
 
 h1, h2 {
   text-align: center;
@@ -43,7 +44,7 @@ h1.break-message {
   display: none; }
 
 input#mce-EMAIL {
-  width: 30%;
+  width: 50%;
   margin: 2% 0 4% 0; }
 
 h1.title {
@@ -86,9 +87,6 @@ div#main {
 .lead a {
   color: #C43B3B; }
 
-@media all and (max-device-width: 480px) {
-  .changeThisFont {
-    font-size: 0.5em; } }
 #todo-container {
   padding-top: 6%; }
 
@@ -142,10 +140,10 @@ rebel {
   text-align: left; }
 
 .todo-list li {
-  padding: 10px;
+  padding: 2%;
   margin: 4px 0;
   border: 1px solid #2F7AFF;
-  width: 90%;
+  width: 100%;
   position: relative;
   min-height: 100%;
   cursor: pointer;
@@ -160,3 +158,27 @@ rebel {
 
 .todo-list li .bt:hover {
   width: 80px; }
+
+@media all and (max-device-width: 480px) {
+  img.acetask {
+    max-width: 60%;
+    max-height: 60%; }
+
+  .todo-list li {
+    font-size: 1.0em; }
+
+  input#mce-EMAIL {
+    width: 90%;
+    margin: 2% 0 4% 0; }
+
+  .alert-success {
+    font-size: 1.0em;
+    margin-bottom: 0; }
+
+  .alert-info {
+    font-size: 1.0em;
+    margin-bottom: 0;
+    margin-top: 3%; }
+
+  div#newsletter {
+    font-size: 1.0em; } }

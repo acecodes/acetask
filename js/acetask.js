@@ -8,7 +8,8 @@ app.controller('TodoCtrl', function($scope) {
 	$scope.done = function(todo) {
 		var indexOf = $scope.todos.indexOf(todo);
 		if (indexOf !== -1) {
-			$scope.todos.splice(indexOf, 1, 'Task completed');
+			// $scope.todos.splice(indexOf, 1, 'Task completed');
+			$scope.todos.pop(indexOf);
 		}
 	};
 
