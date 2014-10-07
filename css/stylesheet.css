@@ -2,13 +2,12 @@
   font-family: LED;
   src: url("../fonts/digital-7.ttf"); }
 .alert-success {
-  font-size: 1.8em;
+  font-size: 1.5em;
   margin-bottom: 0; }
 
 .alert-info {
-  font-size: 1.8em;
-  margin-bottom: 0;
-  margin-top: 3%; }
+  font-size: 1.5em;
+  margin-bottom: 0; }
 
 .jumbotron#acetask {
   text-align: center;
