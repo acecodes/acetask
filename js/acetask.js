@@ -2,10 +2,9 @@ var app = angular.module('Todo', []);
 
 app.controller('TodoCtrl', function($scope) {
 	$scope.todos = [];
+	$scope.finished = [];
 
 	$scope.count = 0;
-
-	
 
 	$scope.done = function(todo) {
 		var indexOf = $scope.todos.indexOf(todo);
@@ -13,6 +12,7 @@ app.controller('TodoCtrl', function($scope) {
 			$scope.todos.splice(indexOf, 1);
 		}
 		$scope.count += 1;
+		$scope.finished.push($scope.todos);
 	};
 
 	$scope.add = function(e) {
