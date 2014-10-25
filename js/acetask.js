@@ -7,12 +7,13 @@ app.controller('TodoCtrl', function($scope) {
 	$scope.count = 0;
 
 	$scope.done = function(todo) {
+		var timestamp = new Date();
 		var indexOf = $scope.todos.indexOf(todo);
 		if (indexOf !== -1) {
 			$scope.todos.splice(indexOf, 1);
 		}
 		$scope.count += 1;
-		$scope.finished.push($scope.todos);
+		$scope.finished += todo + " - " + timestamp;
 	};
 
 	$scope.add = function(e) {
