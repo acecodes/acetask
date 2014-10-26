@@ -13,7 +13,8 @@ app.controller('TodoCtrl', function($scope) {
 			$scope.todos.splice(indexOf, 1);
 		}
 		$scope.count += 1;
-		$scope.finished += todo + " - " + timestamp;
+		$scope.$apply( function() { $scope.finished += todo + " - " + timestamp.getHours() + ":" + timestamp.getMinutes(); })
+		
 	};
 
 	$scope.add = function(e) {
