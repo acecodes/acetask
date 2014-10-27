@@ -3,17 +3,17 @@ var app = angular.module('Todo', []);
 app.controller('TodoCtrl', function($scope) {
 	$scope.todos = [];
 	$scope.finished = [];
-
 	$scope.count = 0;
 
 	$scope.done = function(todo) {
-		var timestamp = new Date();
+		var new_time = new Date();
+		var timestamp = new_time.getHours() + ":" + new_time.getMinutes();
 		var indexOf = $scope.todos.indexOf(todo);
 		if (indexOf !== -1) {
 			$scope.todos.splice(indexOf, 1);
 		}
 		$scope.count += 1;
-		$scope.$apply( function() { $scope.finished += todo + " - " + timestamp.getHours() + ":" + timestamp.getMinutes(); })
+		$scope.finished.push(todo + " (" + timestamp + ")");
 		
 	};
 
