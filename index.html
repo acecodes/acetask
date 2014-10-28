@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="AceTask">
 <head>
         <meta charset="utf-8">
         <title>AceTask - A No-Nonsense To-Do List | 52 Aces</title>
@@ -23,7 +23,7 @@
 
 
 
-<body ng-app="Todo">
+<body>
 
 
 
@@ -51,11 +51,12 @@
       </div>
     </div>
 
-<div class="jumbotron" id="acetask" ng-controller="TodoCtrl">
+<div class="jumbotron" id="acetask" ng-controller="AceTaskCtrl">
 <div class="container">
 
             
 <div class="col-md-2">&nbsp;</div>
+
 <!-- Todo list -->
 <div class="col-md-8">
 <img class="acetask" src="img/acetask.png"><br />
@@ -63,7 +64,7 @@
     <ul class="todo-list" ng-repeat="todo in todos track by $index">
       <li>
         <span>{{ todo }}</span>
-            <button class="bt bt-achieve" ng-click="done(todo)" ng-init="count=0">Done</button>
+            <button class="bt bt-achieve" ng-click="done(todo)" ng-init="count=0" ng-model="finished">Done</button>
       </li>
     </ul>
 
@@ -79,14 +80,10 @@
 
 <p class="completed">
   Completed tasks: {{count}}
+  <br />
+  {{finished}}
 </p>
 
-
-<div ng-app ng-init="finished=[]">
-  <div>
-    <b>Total:</b> {{finished}}
-  </div>
-</div>
 
 
           <div class="alert alert-success" role="alert">
