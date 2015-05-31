@@ -9,8 +9,8 @@
     <meta name="description" content="A Pomodoro put together by 52 Aces for the benefit of anyone that needs to be more productive" />
     <meta name="keywords" content="pomodoro, 52 aces, productivity, web apps" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/stylesheet.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/stylesheet.min.css">
+    <link rel="stylesheet" href="css/navbar.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -67,7 +67,7 @@
                         Completed tasks: {{count}}
                     </p>
                     <div ng-repeat="task in finished">
-                    {{task}}
+                        {{task}}
                     </div>
                     <div class="alert alert-success" role="alert">
                         <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
