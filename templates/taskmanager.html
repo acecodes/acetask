@@ -1,0 +1,37 @@
+<div class="jumbotron" id="acetask">
+    <div class="container">
+        <div class="col-md-2">&nbsp;</div>
+        <!-- Todo list -->
+        <div class="col-md-8">
+            <img class="acetask" src="img/acetask.png">
+            <br />
+            <div id="todo-container">
+                <ul class="todo-list" ng-repeat="todo in app.todos track by $index">
+                    <li>
+                        <span>{{ todo }}</span>
+                        <button class="bt bt-achieve" ng-click="app.done(app, todo)" ng-init="count=0" ng-model="finished">Done</button>
+                    </li>
+                </ul>
+                <!-- Add a todo item -->
+                <ul class="add-todo">
+                    <li>
+                        <input type="text" class="txt" placeholder="Add your to-do items and press Enter/Return" ng-model="user.newTodo" ng-keyup="app.add(app, $event, user.newTodo)" />
+                    </li>
+                </ul>
+                <p class="completed">
+                    Completed tasks: {{app.count}}
+                </p>
+                <div ng-repeat="task in finished">
+                    {{app.task}}
+                </div>
+                <div class="alert alert-success" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    Want to time yourself using the Pomodoro technique? Give <a href="http://www.52aces.com/acetimer/">AceTimer</a> a try.</div>
+                <div class="alert alert-info" role="alert">
+                    <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    Please note that this list resets every time the page is reloaded. If you have any questions or comments, please send me a <a href="http://www.52aces.com/contact/">message</a>.</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2">&nbsp;</div>
+</div>

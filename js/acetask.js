@@ -2,14 +2,22 @@ var Main = (function() {
 
     'use strict';
 
-    var app = angular.module('AceTask', []);
+    function AceTaskCtrl(taskFactory) {
+        this.todos = [];
+        this.finished = [];
+        this.count = 0;
+        this.done = taskFactory.done;
+        this.add = taskFactory.add;
+        this.newTodo = '';
+    }
 
-    app.controller('AceTaskCtrl', function($scope) {
-        $scope.todos = [];
-        $scope.finished = [];
-        $scope.count = 0;
+    AceTaskCtrl.$inject = ['taskFactory'];
 
-        $scope.done = function(todo) {
+    var app = angular.module('acetask', [])
+
+    .factory('taskFactory', [function () {
+
+        function done(scope, todo) {
             var timestamp = new Date();
 
             var task = {
@@ -17,21 +25,69 @@ var Main = (function() {
                 time: timestamp.getHours() + ':' + timestamp.getMinutes()
             };
 
-            var indexOf = $scope.todos.indexOf(todo);
-            if (indexOf !== -1) {
-                $scope.todos.splice(indexOf, 1);
+            var index = scope.todos.indexOf(todo);
+            if (index !== -1) {
+                scope.todos.splice(index, 1);
             }
-            $scope.count += 1;
 
-            $scope.finished.push(task.text + ' (' + task.time + ')');
+            scope.count += 1;
 
-        };
+            scope.finished.push(task.text + ' (' + task.time + ')');
+        }
 
-        $scope.add = function(e) {
+        function add(scope, e, todo) {
             if (e.which && e.which === 13) {
-                $scope.todos.push($scope.newTodo);
-                $scope.newTodo = '';
+                scope.todos.push(todo);
+                scope.newTodo = '';
             }
+        }
+    
+        return {
+            done: done,
+            add: add
         };
-    });
+    }])
+
+    .directive('acetask', [function () {
+        return {
+            bindToController:true,
+            controller: AceTaskCtrl,
+            controllerAs: 'app'
+        };
+    }])
+
+    .directive('taskmanager', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/taskmanager.html'
+        };
+    }])
+
+    .directive('newsletter', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/newsletter.html'
+        };
+    }])
+
+    .directive('navbar', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/navbar.html'
+        };
+    }])
+
+    .directive('acefooter', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/acefooter.html'
+        };
+    }])
+
+    .directive('analytics', [function () {
+        return {
+            restrict: 'E',
+            templateUrl: 'templates/analytics.html'
+        };
+    }]);
 })();
