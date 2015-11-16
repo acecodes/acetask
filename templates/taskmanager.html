@@ -6,6 +6,7 @@
             <img class="acetask" src="img/acetask.png">
             <br />
             <div id="todo-container">
+            <p>Add your to-do items and press Enter/Return.</p>
                 <ul class="todo-list" ng-repeat="todo in app.todos track by $index">
                     <li>
                         <span>{{ todo }}</span>
@@ -15,7 +16,7 @@
                 <!-- Add a todo item -->
                 <ul class="add-todo">
                     <li>
-                        <input type="text" class="txt" placeholder="Add your to-do items and press Enter/Return" ng-model="user.newTodo" ng-keyup="app.add(app, $event, user.newTodo)" />
+                        <input type="text" class="txt" ng-model="user.newTodo" ng-keyup="app.add(app, $event, user.newTodo)" />
                     </li>
                 </ul>
                 <p class="completed">
